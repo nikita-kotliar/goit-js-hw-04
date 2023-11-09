@@ -1,11 +1,24 @@
-const book = {
-  author: "Bernard Cornwell",
-  genres: ["historical prose", "adventure"],
-  rating: 8.38,
-};
-const keys = Object.keys(book);
-
-for (const key of keys) {
-  console.log(key); // Ключ
-  console.log(book[key]); // Значення властивості
+function isEnoughCapacity(products, containerSize) {
+  const allProducts = Object.values(products);
+  let totalQuantity = 0;
+  for(const product of allProducts) {
+    totalQuantity = totalQuantity + product;
+  }
+  return totalQuantity <= containerSize;
 }
+
+console.log(
+  isEnoughCapacity({ apples: 2, grapes: 3, carrots: 1 }, 8)
+); // true
+
+console.log(
+  isEnoughCapacity({ apples: 4, grapes: 6, lime: 16 }, 12)
+); // false
+
+console.log(
+  isEnoughCapacity({ apples: 1, lime: 5, tomatos: 3 }, 14)
+); // true
+
+console.log(
+  isEnoughCapacity({ apples: 18, potatos: 5, oranges: 2 }, 7)
+); // false
